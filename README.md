@@ -86,6 +86,8 @@ Note that if a and b are not equal (they are equal in the demo data) and their o
 To run the CACS, open `CACS.m` and run.
 The results will be saved at the same path as LR images.
 
+For point-like signals, in our example data of PI-labelled nuclei, Because CACS tends to calculate very small points, and the nuclei actually like spheres, we will add three-dimensional Gaussian blur to the image, the sigma of each dimension is 1.
+
 To run the inference on your own data, make sure that:
 1. Input the path of data in `CACS.m`.
 2. The data can not be too large because it is limited by the memory of GPU, otherwise the data needs to be cropped with `crop_and_stitch.m`. With our GTX 1080 Ti, the largest 3D image has 100 pixels in three axis.
