@@ -2,7 +2,7 @@ function mainCS3D(filename,beta)
 clc
  disp(['Now is calculating ',filename,' and beta is set as ',num2str(beta)]);
 %% IMAGE INPUT
-%filename = 'raw320.tif';
+%Image size
 XRes = 25;
 YRes = 25;
 ZRes = 10;
@@ -17,10 +17,14 @@ end
 inputfile = inputfile./max(max(max(inputfile)));
 
 %% PROCESSING PARAMETERS
+%Enhancement factor
 FactorX =4;
 FactorY = FactorX;
 FactorZ =4;
 
+% Voxel sizes
+% For point-like, xy/zSensor = 3.25
+% For line-like, xy/zSensor = 2
 xySensor =3.25;
 zSensor =3.25;
 
