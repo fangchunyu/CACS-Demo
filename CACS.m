@@ -7,7 +7,7 @@ blockSize = 10;
 % 
  for i=1:1
 %     
- filename = strcat('D:\paper_example\pi\25\sparseHIP_lr',num2str(i),'.tif');
+ filename = strcat('D:\example_data\point_like\LR\pidense.tif');
 %  filename = 'test2.tif';
 imgBlock = imgread3D(filename, blockSize); 
 % imgBlock =65535*ones(50,50,50);
@@ -16,11 +16,11 @@ imgBlock = imgread3D(filename, blockSize);
 
 lambda1 = CalcLambda32(imgBlock);
 mainCS3D(filename, lambda1);
-    % TODO£º ±£´æÍÆ²â×î¼ÑlambdaÏÂµÄÍ¼Ïñ½á¹û img
+    % TODOï¼š ä¿å­˜æ¨æµ‹æœ€ä½³lambdaä¸‹çš„å›¾åƒç»“æœ img
     
 %     for j=1:10
 %         lambda = j/10;
 %         img = CS3D(imgBlock, lambda);
-%         % TODO£º ±£´æ²»Í¬lambdaÏÂµÄÍ¼Ïñ½á¹û img
+%         % TODOï¼š ä¿å­˜ä¸åŒlambdaä¸‹çš„å›¾åƒç»“æœ img
 % %     end        
  end
