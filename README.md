@@ -32,8 +32,8 @@ CACS-Demo
     ├── find_lambdamax_l1_ls_nonneg.m
     ├── gausFilt3D.m
     ├── example_data
-        └── Line_like
-        └── Point_like
+        └── line_like_neurons
+        └── point_like_cell_nuclei
     ...
 ```
 
@@ -41,19 +41,19 @@ CACS-Demo
 
 #### Inference
 
-This toturial contains example data of line-like and point-like signals from Thy1-GFP-M and PI labelled mouse brain(see example_data/):
+This toturial contains example data of line-like neurons and point-like cell nuclei signals from Thy1-GFP-M and PI labelled mouse brain(see example_data/):
 
 ```
 ├── example_data
-    └── Line_like
+    └── line_like_neurons
         └── LR
             └── thy1sparse.tif                (3.2x bessel-sheet ROI with sparse signals of Thy1-GFP-M mouse brain)
             └── thy1dense.tif                 (3.2x bessel-sheet ROI with dense signals of Thy1-GFP-M mouse brain)
         └── expected_outputs
-    └── Point_like
+    └── point_like_cell_nuclei
         └── LR
-            └── pisparse.tif                (3.2x bessel-sheet ROI with sparse signals of PI-labelled mouse brain)
-            └── pidense.tif                 (3.2x bessel-sheet ROI with dense signals of PI-labelled mouse brain)
+            └── pisparse.tif                (2x bessel-sheet ROI with sparse signals of PI-labelled mouse brain)
+            └── pidense.tif                 (2x bessel-sheet ROI with dense signals of PI-labelled mouse brain)
         └── expected_outputs
 
 ```
