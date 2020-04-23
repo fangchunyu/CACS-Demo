@@ -8,12 +8,10 @@ clc
     ZRes = zSize;
 
 if meanStd > 0.08
-    gamma = 0.5;
     blurSigma = 1e-3; % no Gaussian blur
     xySensor = 2;
     zSensor = 2;
 else
-    gamma = 1;
     blurSigma = 1;
     xySensor = 3.25;
     zSensor = 4;
