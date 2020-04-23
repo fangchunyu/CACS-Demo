@@ -2,10 +2,24 @@ function mainCS3D(filename,beta)
 clc
  disp(['Now is calculating ',filename,' and beta is set as ',num2str(beta)]);
 %% IMAGE INPUT
-%filename = 'raw320.tif';
-XRes = 50;
-YRes = 50;
-ZRes = 50;
+% check filename to choose parameters;
+if contains(filename, 'thy1')
+    XRes = 50;
+    YRes = 50;
+    ZRes = 50;
+    gamma = 0.5;
+    blurSigma = 1e-3; % no Gaussian blur
+    xySensor = 2;
+    zSensor = 2;
+else
+    XRes = 25;
+    YRes = 25;
+    ZRes = 10;
+    gamma = 1;
+    blurSigma = 1;
+    xySensor = 3.25;
+    zSensor = 3.25;
+end
 inputfile = zeros(XRes, YRes, ZRes);
 for i = 1:ZRes
     im1=imread(filename, i);
@@ -21,8 +35,7 @@ FactorX =4;
 FactorY = FactorX;
 FactorZ =4;
 
-xySensor = 2;
-zSensor = 2;
+
 
 HRX = FactorX * XRes;
 HRY = FactorY * YRes; 
@@ -64,9 +77,10 @@ lambda = find_lambdamax_l1_ls_nonneg(At,target(:));
 gather(img_est);
 img_est = reshape(img_est, [(size(img_interp,1)) (size(img_interp,2))  (size(img_interp,3))]);
 
-%adjust gamma for line-like signals
-gamma = 0.5;
+
+
 img_est = img_est .^ gamma;
+img_est = imgaussfilt3(img_est, blurSigma);
 
 %figure, imshow(img_est,[0,1]);
 
