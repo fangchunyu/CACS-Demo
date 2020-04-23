@@ -18,6 +18,7 @@ else
     xySensor = 3.25;
     zSensor = 4;
 end
+gamma = -11.726*meanStd + 1.615;
 inputfile = zeros(XRes, YRes, ZRes);
 for i = 1:ZRes
     im1=imread(filename, i);
