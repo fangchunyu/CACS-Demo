@@ -2,10 +2,10 @@ function mainCS3D(filename,beta)
 clc
  disp(['Now is calculating ',filename,' and beta is set as ',num2str(beta)]);
 %% IMAGE INPUT
-%Image size
-XRes = 25;
-YRes = 25;
-ZRes = 10;
+%filename = 'raw320.tif';
+XRes = 50;
+YRes = 50;
+ZRes = 50;
 inputfile = zeros(XRes, YRes, ZRes);
 for i = 1:ZRes
     im1=imread(filename, i);
@@ -17,16 +17,12 @@ end
 inputfile = inputfile./max(max(max(inputfile)));
 
 %% PROCESSING PARAMETERS
-%Enhancement factor
 FactorX =4;
 FactorY = FactorX;
 FactorZ =4;
 
-% Voxel sizes
-% For point-like, xy/zSensor = 3.25
-% For line-like, xy/zSensor = 2
-xySensor =3.25;
-zSensor =3.25;
+xySensor = 2;
+zSensor = 2;
 
 HRX = FactorX * XRes;
 HRY = FactorY * YRes; 
@@ -68,12 +64,16 @@ lambda = find_lambdamax_l1_ls_nonneg(At,target(:));
 gather(img_est);
 img_est = reshape(img_est, [(size(img_interp,1)) (size(img_interp,2))  (size(img_interp,3))]);
 
-%figure, imshow(img_est,[0,1]);
-   
+%adjust gamma for line-like signals
+gamma = 0.5;
+img_est = img_est .^ gamma;
 
+%figure, imshow(img_est,[0,1]);
 
 output16 = uint16(img_est.*(65535/max(img_est(:))/4));
 output8 = uint8(img_est.*((255/max(img_est(:)))/4));
+
+
 write3D(output16,[filename,'_X',num2str(FactorX),'Z',num2str(FactorZ),'interp_',num2str(beta),'lambda16bit0.001_Bespsf.tif']);
 %write3D(output8,'raw_4xinterp_0.5lambda8bit.tif');
 %write3D(img_est,'raw_4xinterp_0.5lambdadouble.tif');
