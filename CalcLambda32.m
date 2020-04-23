@@ -1,4 +1,4 @@
-function lambda = CalcLambda32(nh, imgblock)
+function lambda = CalcLambda32(nh, k1, b1, imgblock)
 
 
 nhoodsz = nh;
@@ -14,8 +14,7 @@ c = sort(aa,'descend');
 cc = c(1:5);
 val = mean(cc);
 % val=c;
-lambda = (-0.085)*val + 0.5199;
-% lambda = (-0.3538)*val + 1.8224;
-% lambda = (-0.14)*val + 0.71;
+lambda = k1 * val + b1;
+
 
 end
