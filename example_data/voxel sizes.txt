@@ -1,0 +1,5 @@
+For 3.2x neurons from Thy1-GFP-M mouse brain, the voxel size is
+2.03125 um * 2.03125 um * 2 um
+
+For 2x cell nuclei from PI-labelled mouse brain, the voxel size is
+3.25 um * 3.25 um * 4 um
