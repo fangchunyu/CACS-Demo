@@ -84,7 +84,7 @@ ZRes = c;
 Note that if a and b are not equal (they are equal in the demo data) and their order are wrong, the program will not run correctly.
 `xy/z sensor` indicates the voxel sizes for xy/z axis.
 
-4. In `mainCS3D.m` , the enhance factor for LR images are set in `PROCESSING PARAMETERS`
+4. In `mainCS3D.m` , the enhance factor for LR images are set in `PROCESSING PARAMETERS`;
 `FactorX/Y/Z` indicates the enhance factor. 
 
 To run the CACS, open `CACS.m` and run.
