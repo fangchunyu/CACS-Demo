@@ -36,7 +36,9 @@ CACS-Demo
         └── point_like_cell_nuclei
     ...
 ```
+Remark: The updated version supports the latest version of Matlab R2020b and CUDA10.1. Please copy and replace the files in the CUDA10.1 folder to the root directory before use.
 
+Caution: The native mode of the original fastest cufft was deleted in the versions after CUDA7.5 and only the fftw compatible mode is retained, we strongly recommend that the size of input image be cropped to 2<sup>n</sup> (for example, 64×64×64), otherwise the calculation will take a very long time. However, even so, for the same size image, the speed of running on CUDA7.5 is still slightly faster than the speed of CUDA10.1. Therefore, in order to achieve faster computation, we still recommend the configuration of Matlab R2017a + CUDA7.5.
 ## Usage
 
 #### Inference
